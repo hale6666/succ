@@ -24,7 +24,7 @@ def check(inp):
         reverse(5)
 
 def main():
-    fl = open(barcodes.txt)
+    fl = open("barcodes.txt")
     st = {line for line in fl}
     inp = ""
     while inp != "0":
