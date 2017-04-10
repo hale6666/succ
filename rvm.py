@@ -29,7 +29,7 @@ def check(inp):
         forward(5)
     else:
         reverse(5)
-
+"""
 def read_rfid():
     id = ""
     read = rfid.read()
@@ -39,20 +39,20 @@ def read_rfid():
             id = id + str(read)
             serial.reset_input_buffer()
         return id
-
+"""
 def init():
     fl = open("barcodes.txt")
     global st
     st = {line for line in fl}
     fl.close()
 
-def main():
-    ib = read_rfid()
-    uid = api.ibutton2uid(ib)
-    print(api.getcredits(uid))
-    inp = ""
-    while inp != "0":
-        inp = input()
-        check(inp)
+
+#ib = read_rfid()
+uid = api.ibutton2uid(ib)
+print(api.getcredits(uid))
+inp = ""
+while inp != "0":
+    inp = input()
+    check(inp)
 
 GPIO.cleanup()
