@@ -31,20 +31,20 @@ def get_credits(uid):
     """
     This is to return the credits a user has, so that it can be shown on the screen.
     """
-    head = {"request": "users/credits/{}".format(uid), "api_key": API_KEY}
+    head = {"request": "users/credits/{}".format(uid), "uid": uid, "api_key": API_KEY}
     ret = requests.get(url,params=head)
     if ret.status_code != 200:
         raise ValueError
     else:
         return ret.json()['data']
-# TODO: Add iButton and/or RFID code.
 
 def give_credits(uid, credits):
     """
     Takes the uid and amount to give.
     This cannot be used until permission to change balances is given.
     """
-    head = {"request": "users/credits/{}/{}/{}".format(uid, credits, "add"), "api_key": API_KEY}
+    head = {"request": "users/credits/{}/{}/{}".format(uid, credits, "add"), "uid": uid,
+        "value": credits, "type": "add", "api_key": API_KEY}
     ret = requests.post(url,params=head)
     if ret.status_code != 200:
         raise ValueError
