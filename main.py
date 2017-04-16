@@ -21,6 +21,7 @@ def read_rfid():
         for i in range(12):
             read = rfid.read()
             id = id + str(read)[2]
+        rfid.flushInput()
         return id
 
 def insert_mode():
