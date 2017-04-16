@@ -43,5 +43,3 @@ def start():
         if inp == "0": break
         inserted += check(inp)
     return inserted
-
-GPIO.cleanup()
