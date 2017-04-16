@@ -15,16 +15,17 @@ rfid = serial.Serial('/dev/ttyAMA0', 9600)
 def read_rfid():
     id = ""
     read = rfid.read()
-    if read == "\x02":
+    if 'x02' in str(read):
         for i in range(12):
             read = rfid.read()
-            id = id + str(read)
-            serial.reset_input_buffer()
+            id = id + str(read)[2]
         return id
 
 def insert_mode():
     ib = read_rfid()
     uid = api.ibutton2uid(ib)
+    credits = api.get_credits(uid)
+    print(uid, " : ", credits, " credits")
     ins = rvm.start()
     cr = ins * 5
     api.give_credits(uid,cr)
