@@ -1,7 +1,16 @@
 import os
 import RPi.GPIO as GPIO
 import api
+import serial
+from time import sleep
 import rvm
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(16, GPIO.OUT) #RFID Port
+GPIO.setup(18, GPIO.OUT) #RFID Port
+GPIO.output(16,False)
+GPIO.output(18,False)
+rfid = serial.Serial('/dev/ttyAMA0', 9600)
 
 def read_rfid():
     id = ""
