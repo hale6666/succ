@@ -27,9 +27,10 @@ def reverse(x):
 def check(inp):
     if inp in st:
         forward(5)
-        inserted += 1
+        return 1
     else:
         reverse(5)
+        return 0
 
 def make_list():
     fl = open("barcodes.txt")
@@ -41,10 +42,10 @@ def make_list():
 def start():
     make_list()
     inp = ""
+    inserted = 0
     while inp != "0":
         inp = input()
-        check(inp)
-        global inserted = 0
+        inserted += check(inp)
     return inserted
 
 GPIO.cleanup()
