@@ -14,6 +14,7 @@ rfid = serial.Serial('/dev/ttyAMA0', 9600)
 
 def read_rfid():
     id = ""
+    print("Ready for RFID tag.")
     read = rfid.read()
     if 'x02' in str(read):
         for i in range(12):
