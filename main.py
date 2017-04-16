@@ -23,6 +23,7 @@ def read_rfid():
 
 def insert_mode():
     ib = read_rfid()
+    rfid.flushInput()
     uid = api.ibutton2uid(ib)
     credits = api.get_credits(uid)
     print(uid, " : ", credits, " credits")
