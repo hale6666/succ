@@ -34,9 +34,9 @@ def insert_mode():
     print("credits earned: ", cr)
     credits = api.give_credits(uid,cr)
     print(uid, " : ", credits, " credits")
-    time.sleep(3)
+    sleep(3)
     print("Thank you for using SUCC.")
-    time.sleep(3)
+    sleep(3)
     os.system('clear')
 
 while True:
