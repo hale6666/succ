@@ -1,19 +1,9 @@
-import serial
 import RPi.GPIO as GPIO
 from time import sleep
 import requests
 import json
 import api
  
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(13, GPIO.OUT) #Motor Controller Port
-GPIO.setup(15, GPIO.OUT) #Motor Controller Port
-GPIO.setup(16, GPIO.OUT) #RFID Port
-GPIO.setup(18, GPIO.OUT) #RFID Port
-GPIO.output(16,False)
-GPIO.output(18,False)
-rfid = serial.Serial('/dev/ttyAMA0', 9600)
-
 def forward(x):
     GPIO.output(13, GPIO.HIGH)
     sleep(x)
@@ -26,9 +16,11 @@ def reverse(x):
 
 def check(inp):
     if inp in st:
+        print("Valid for Return")
         forward(5)
         return 1
     else:
+        print("Not Valid for Return")
         reverse(5)
         return 0
 
@@ -40,11 +32,13 @@ def make_list():
 
 
 def start():
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.setup(15, GPIO.OUT)
     make_list()
     inp = ""
     inserted = 0
     while inp != "0":
-        inp = input()
+        inp = input("Insert Container")
         inserted += check(inp)
     return inserted
 
