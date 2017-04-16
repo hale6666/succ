@@ -32,7 +32,7 @@ def insert_mode():
     ins = rvm.start()
     cr = ins * 5
     print("credits earned: ", cr)
-    credits = api.give_credits(uid,cr)
+    credits = api.give_credits(uid,cr)['data']
     print(uid, " : ", credits, " credits")
     sleep(3)
     print("Thank you for using SUCC.")
