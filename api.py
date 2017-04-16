@@ -45,8 +45,8 @@ def give_credits(uid, credits):
     """
     head = {"request": "users/credits/{}/{}/{}".format(uid, credits, "add"), "uid": uid,
         "value": credits, "type": "add", "api_key": API_KEY}
-    ret = requests.post(url,params=head)
+    ret = requests.post(url,data=head)
     if ret.status_code != 200:
         raise ValueError
     else:
-        return ret.json()['data']
+        return ret.json()
