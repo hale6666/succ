@@ -6,6 +6,7 @@ from time import sleep
 import rvm
 
 GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 GPIO.setup(16, GPIO.OUT) #RFID Port
 GPIO.setup(18, GPIO.OUT) #RFID Port
 GPIO.output(16,False)
@@ -36,6 +37,7 @@ def insert_mode():
     time.sleep(3)
     print("Thank you for using SUCC.")
     time.sleep(3)
+    os.system('clear')
 
 while True:
     insert_mode()

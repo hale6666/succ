@@ -32,6 +32,7 @@ def make_list():
 
 
 def start():
+    GPIO.setwarnings(False)
     GPIO.setup(13, GPIO.OUT)
     GPIO.setup(15, GPIO.OUT)
     make_list()
@@ -39,6 +40,7 @@ def start():
     inserted = 0
     while inp != "0":
         inp = input("Insert Container")
+        if inp == "0": break
         inserted += check(inp)
     return inserted
 
