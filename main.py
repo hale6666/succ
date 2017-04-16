@@ -21,12 +21,12 @@ def read_rfid():
         for i in range(12):
             read = rfid.read()
             id = id + str(read)[2]
-        rfid.flushInput()
+        rfid.reset_input_buffer()
         return id
 
 def insert_mode():
     ib = read_rfid()
-    rfid.flushInput()
+    rfid.reset_input_buffer()
     uid = api.ibutton2uid(ib)
     credits = api.get_credits(uid)
     print(uid, " : ", credits, " credits")
