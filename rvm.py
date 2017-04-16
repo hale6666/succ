@@ -31,16 +31,6 @@ def check(inp):
     else:
         reverse(5)
 
-def read_rfid():
-    id = ""
-    read = rfid.read()
-    if read == "\x02":
-        for i in range(12):
-            read = rfid.read()
-            id = id + str(read)
-            serial.reset_input_buffer()
-        return id
-
 def make_list():
     fl = open("barcodes.txt")
     global st
@@ -48,9 +38,6 @@ def make_list():
     fl.close()
 
 
-#ib = read_rfid()
-#uid = api.ibutton2uid(ib)
-#print(api.getcredits(uid))
 def start():
     make_list()
     inp = ""
