@@ -38,6 +38,7 @@ def insert_mode():
     print("Thank you for using SUCC.")
     sleep(3)
     os.system('clear')
+    ib = ""
 
 while True:
     insert_mode()
