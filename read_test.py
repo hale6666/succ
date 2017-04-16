@@ -29,6 +29,8 @@ def insert_mode():
     cr = api.get_credits(uid)
     print("credits: ", cr)
 
-insert_mode()
+while True:
+    insert_mode()
+    rfid.flushInput()
 
 GPIO.cleanup()
