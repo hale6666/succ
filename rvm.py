@@ -17,11 +17,11 @@ def reverse(x):
 def check(inp):
     if inp in st:
         print("Valid for Return")
-        forward(5)
+        forward(3)
         return 1
     else:
         print("Not Valid for Return")
-        reverse(5)
+        reverse(3)
         return 0
 
 def make_list():
