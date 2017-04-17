@@ -27,7 +27,7 @@ def check(inp):
 def make_list():
     fl = open("barcodes.txt")
     global st
-    st = {line for line in fl}
+    st = {line.strip() for line in fl}
     fl.close()
 
 
