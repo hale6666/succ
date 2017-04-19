@@ -37,6 +37,7 @@ def read_ib():
         return ID
 
 def insert_mode():
+    print("Ready for ibutton.")
     ib = read_ib()
     uid = api.ibutton2uid(ib)
     credits = api.get_credits(uid)
