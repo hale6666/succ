@@ -40,7 +40,10 @@ def read_ib():
 def insert_mode():
     print("Ready for ibutton.")
     ib = read_ib()
-    uid = api.ibutton2uid("*"+ib[3:]+"01")
+    print(ib)
+    sear = "*" + ib[3:] + "01"
+    print(sear)
+    uid = api.ibutton2uid(sear)
     credits = api.get_credits(uid)
     print(uid, " : ", credits, " credits")
     ins = rvm.start()

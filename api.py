@@ -1,5 +1,7 @@
 import requests
 import json
+import csh_ldap as ldap
+import vari
 
 with open("api.key") as f:
     API_KEY = f.read().strip()
@@ -19,14 +21,9 @@ def test():
     print(ret.json())
     print(ret.json()['message'])
 
-def ibutton2uid(ibutton, ib_url="http://ibutton2uid.app.csh.rit.edu/"):
-    """
-    Thanks to James Forcier for writing this.  https://github.com/csssuf
-    """
-    r = requests.get(ib_url + ibutton)
-    if r.status_code == 200:
-        return r.text
-
+def ibutton2uid(ibutton):
+    LD = ldap.CSHLDAP(vari.dn(), vari.pw())
+    return LD.get_member_ibutton(ibutton)
 def get_credits(uid):
     """
     This is to return the credits a user has, so that it can be shown on the screen.

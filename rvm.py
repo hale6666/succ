@@ -5,6 +5,8 @@ import json
 import api
 import signal
 
+GPIO.setmode(GPIO.BOARD)
+
 class AlarmException(Exception):
     pass
 
