@@ -34,12 +34,12 @@ def read_ib():
     if ID != 'not found.\n':
         d = open(delete_dir, "w")
         d.write(ID)
-        return ID
+        return ID.strip()
 
 def insert_mode():
     print("Ready for ibutton.")
     ib = read_ib()
-    uid = api.ibutton2uid(ib)
+    uid = api.ibutton2uid("*"+ib[3:]+"01")
     credits = api.get_credits(uid)
     print(uid, " : ", credits, " credits")
     ins = rvm.start()
