@@ -28,13 +28,14 @@ def read_rfid():
 """
 
 def read_ib():
-    f = open(base_dir, "r")
-    ID = f.read()
-    f.close()
-    if ID != 'not found.\n':
-        d = open(delete_dir, "w")
-        d.write(ID)
-        return ID.strip()
+    while True:
+        f = open(base_dir, "r")
+        ID = f.read()
+        f.close()
+        if ID != 'not found.\n':
+            d = open(delete_dir, "w")
+            d.write(ID)
+            return ID.strip()
 
 def insert_mode():
     print("Ready for ibutton.")
