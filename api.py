@@ -23,7 +23,7 @@ def test():
 
 def ibutton2uid(ibutton):
     LD = ldap.CSHLDAP(vari.dn(), vari.pw())
-    return LD.get_member_ibutton(ibutton)
+    return LD.get_member_ibutton(ibutton).uid
 def get_credits(uid):
     """
     This is to return the credits a user has, so that it can be shown on the screen.
