@@ -14,14 +14,14 @@ def alarm_handler(signum, frame):
     raise AlarmException
  
 def forward(x):
-    GPIO.output(13, GPIO.HIGH)
-    sleep(x)
-    GPIO.output(13, GPIO.LOW)
-
-def reverse(x):
     GPIO.output(15, GPIO.HIGH)
     sleep(x)
     GPIO.output(15, GPIO.LOW)
+
+def reverse(x):
+    GPIO.output(13, GPIO.HIGH)
+    sleep(x)
+    GPIO.output(13, GPIO.LOW)
 
 def check(inp):
     if inp in st:
